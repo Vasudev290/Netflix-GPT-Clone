@@ -1,7 +1,9 @@
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../Utils/Firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../Slices/userSlice";
+import { useEffect } from "react";
 
 const Header = () => {
   //Selector Method
@@ -10,16 +12,34 @@ const Header = () => {
   //Navigate
   const navigate = useNavigate();
 
+  //Dispatch
+  const dispatch = useDispatch();
+
   //SignOut Button
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
       })
       .catch((error) => {
         navigate("/errorPage");
       });
   };
+
+  //useEffect
+    useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          const { uid, email, displayName, photoURL } = user;
+          dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
+          navigate("/browse")
+        } else {
+          dispatch(removeUser());
+          navigate("/")
+          
+        }
+      });
+    }, []);
+
   return (
     <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img
@@ -31,7 +51,7 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           <img
             className="w-10 h-12 rounded"
-            src={user?.photoURL}
+            src={user?.photoURL || "https://avatars.githubusercontent.com/u/160304551?v=4"}
             alt="user-icon"
           />
           <button
