@@ -1,4 +1,3 @@
-import React from 'react';
 
 const VideoTitle = (props) => {
   const { title, overview ,onToggleMute, isMuted  } = props;
@@ -43,10 +42,9 @@ const VideoTitle = (props) => {
           More Info
         </button>
         <button
-          onClick={onToggleMute} // Calls the function passed from MainContainer to toggle mute state
+          onClick={onToggleMute} 
           className="flex items-center bg-gray-500 text-white bg-opacity-70 py-2 px-6 md:py-3 md:px-8 rounded-md hover:bg-opacity-60 transition-colors duration-200 text-lg font-semibold"
         >
-          {/* Dynamically display mute or unmute icon based on `isMuted` prop */}
           {isMuted ? (
             // Muted icon (volume off)
             <svg
@@ -62,7 +60,6 @@ const VideoTitle = (props) => {
               ></path>
             </svg>
           ) : (
-            // Unmuted icon (volume on)
             <svg
               className="w-5 h-5 mr-2"
               fill="currentColor"

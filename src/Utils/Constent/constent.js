@@ -7,11 +7,13 @@ export const AVATAR_IMAGE_URL =
 export const BACKGROUND_IMAGE_URL =
   "https://i.pinimg.com/1200x/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg";
 
-
 export const MOVIE_API_OPTIONS = {
-  method: 'GET',
+  method: "GET",
   headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDY0NzBhYjYwYTRiYWY2NjNmNzU2NWE3ODY5ZTNkMiIsIm5iZiI6MTc0OTQ3MTI3MC40NTgsInN1YiI6IjY4NDZkMDI2NjQwMTU5ZGU3ODI5MmZlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IehLg74LhaWjjMZSNz42YG7XOXMGAl9v0I163NTsHlk'
-  }
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDY0NzBhYjYwYTRiYWY2NjNmNzU2NWE3ODY5ZTNkMiIsIm5iZiI6MTc0OTQ3MTI3MC40NTgsInN1YiI6IjY4NDZkMDI2NjQwMTU5ZGU3ODI5MmZlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IehLg74LhaWjjMZSNz42YG7XOXMGAl9v0I163NTsHlk",
+  },
 };
+
+export const MOVIE_IMG_CDN_URL = "https://image.tmdb.org/t/p/w300";

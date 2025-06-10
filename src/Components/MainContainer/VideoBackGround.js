@@ -7,12 +7,12 @@ const VideoBackGround = (props) => {
 
   //useSelector
   const trailerVideo = useSelector((state) => state.movies?.trailerVideo);
-  console.log(trailerVideo?.key)
+  //console.log(trailerVideo?.key)
 
   //Custom Hook for trailer fetch
   useMovieTrailers(movieId)
 
-  const youtubeSrc = `https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${trailerVideo.key}&controls=0&modestbranding=1&disablekb=1`;
+  const youtubeSrc = `https://www.youtube.com/embed/${trailerVideo?.key}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${trailerVideo?.key}&controls=0&modestbranding=1&disablekb=1`;
 
 
   return (

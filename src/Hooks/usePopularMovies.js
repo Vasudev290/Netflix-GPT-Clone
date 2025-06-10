@@ -1,16 +1,16 @@
 import { MOVIE_API_OPTIONS } from "../Utils/Constent/constent";
 import { useDispatch } from "react-redux";
-import { addNowPlayingMovies } from "../Slices//movieSlice";
+import { addPopularMovies } from "../Slices/movieSlice";
 import { useEffect } from "react";
 
-const useNowPlayingMovies = () => {
+const usePopularMovies = () => {
   //Dispatch
   const dispatch = useDispatch();
 
   //fetch api from TMDB api
-  const getNowPlayingMovies = async () => {
+  const getPopularMovies = async () => {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?page=1",
+      "https://api.themoviedb.org/3/movie/popular?page=1",
       MOVIE_API_OPTIONS
     );
     if (!data.ok) {
@@ -18,11 +18,11 @@ const useNowPlayingMovies = () => {
       }
     const jsonData = await data.json();
     //console.log(jsonData.results);
-    dispatch(addNowPlayingMovies(jsonData.results));
+    dispatch(addPopularMovies(jsonData.results));
   };
   useEffect(() => {
-    getNowPlayingMovies();
+    getPopularMovies();
   }, []);
 };
 
-export default useNowPlayingMovies;
+export default usePopularMovies;
