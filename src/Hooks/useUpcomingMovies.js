@@ -17,7 +17,7 @@ const useUpcomingMovies = () => {
         throw new Error(`HTTP error! status: ${data.status}`);
       }
     const jsonData = await data.json();
-    console.log("upcoming movies",jsonData.results);
+    //console.log("upcoming movies",jsonData.results);
     dispatch(addUpcomingMovies(jsonData.results));
   };
   useEffect(() => {

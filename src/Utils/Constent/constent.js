@@ -17,3 +17,14 @@ export const MOVIE_API_OPTIONS = {
 };
 
 export const MOVIE_IMG_CDN_URL = "https://image.tmdb.org/t/p/w300";
+
+
+export const SUPPORT_LANGUAGES = [
+  {identifier: "en", name: "English"},
+  {identifier: "hindi", name: "Hindi"},
+  {identifier: "telugu", name: "Telugu"},
+  {identifier: "tamil", name: "Tamil"},
+  {identifier: "malayalam", name: "Malayalam"},
+  {identifier: "kannada", name: "Kannada"},
+  {identifier: "spanish", name: "Spanish"},
+]

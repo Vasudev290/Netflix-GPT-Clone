@@ -2,7 +2,7 @@ import MovieCard from "./MovieCard";
 import { useRef } from "react";
 const MovieList = (props) => {
   const { title, movies } = props;
-  console.log(movies);
+  //console.log(movies);
 
   const scrollContainerRef = useRef(null);
   // Function to scroll left
@@ -26,7 +26,7 @@ const MovieList = (props) => {
   };
 
   if (!movies || !Array.isArray(movies) || movies.length === 0) {
-    console.log(`No valid movies array to display for title: ${title}`);
+    //console.log(`No valid movies array to display for title: ${title}`);
     return (
       <div className="px-6 py-6 bg-black">
         <h1 className="text-3xl font-bold py-4 text-white">{title}</h1>
