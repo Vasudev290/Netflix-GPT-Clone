@@ -1,8 +1,30 @@
 import MovieCard from "./MovieCard";
-
+import { useRef } from "react";
 const MovieList = (props) => {
   const { title, movies } = props;
   console.log(movies);
+
+  const scrollContainerRef = useRef(null);
+  // Function to scroll left
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -500,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Function to scroll right
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 500,
+        behavior: "smooth",
+      });
+    }
+  };
+
   if (!movies || !Array.isArray(movies) || movies.length === 0) {
     console.log(`No valid movies array to display for title: ${title}`);
     return (
@@ -12,16 +34,72 @@ const MovieList = (props) => {
       </div>
     );
   }
-  return (
-    <div className="px-6 ">
-      <h1 className="text-3xl py-4 text-white">{title}</h1>
 
-      <div className="flex overflow-x-scroll">
-        <div className="flex gap-4">
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} poster_path={movie.poster_path} />
-          ))}
+  return (
+    <div className="px-6 bg-black mb-8 relative">
+      <h1 className="text-3xl md:text-4xl font-bold py-4 text-white">
+        {title}
+      </h1>
+
+      <div className="flex items-center">
+        {/* Left Scroll Button */}
+        <button
+          onClick={scrollLeft} // FIX: Removed the problematic comment directly after the expression
+          className="absolute left-0 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-r-lg h-full flex items-center justify-center transition-all duration-200 focus:outline-none"
+          aria-label={`Scroll left in ${title}`}
+        >
+          <svg
+            className="w-8 h-8 md:w-10 md:h-10"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+        </button>
+
+        {/* Movie Cards Container */}
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-4 pb-2 overflow-x-hidden w-full"
+        >
+          {movies.map((movie) =>
+            movie && movie.id ? (
+              <MovieCard
+                key={movie.id}
+                poster_path={movie.poster_path}
+              />
+            ) : null
+          )}
         </div>
+
+        {/* Right Scroll Button */}
+        <button
+          onClick={scrollRight}
+          className="absolute right-0 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-l-lg h-full flex items-center justify-center transition-all duration-200 focus:outline-none"
+          aria-label={`Scroll right in ${title}`}
+        >
+          <svg
+            className="w-8 h-8 md:w-10 md:h-10"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
       </div>
     </div>
   );
