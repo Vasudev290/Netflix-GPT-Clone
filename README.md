@@ -35,6 +35,7 @@
 -made the browser page amazing with tailwinf css
 -usePopularMovies custom hook
 -now we added the top rated moives & upcoming movies also
+-we added buttons left & right scroll
 
 
 # Features
