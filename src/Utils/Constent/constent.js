@@ -18,13 +18,16 @@ export const MOVIE_API_OPTIONS = {
 
 export const MOVIE_IMG_CDN_URL = "https://image.tmdb.org/t/p/w300";
 
+export const SERACH_MOVIES_CDN_URL =
+  "https://api.themoviedb.org/3/search/movie?";
+export const EXTRA_CDN_URL_LINK = "include_adult=false&language=en-US&page=1";
 
 export const SUPPORT_LANGUAGES = [
-  {identifier: "en", name: "English"},
-  {identifier: "hindi", name: "Hindi"},
-  {identifier: "telugu", name: "Telugu"},
-  {identifier: "tamil", name: "Tamil"},
-  {identifier: "malayalam", name: "Malayalam"},
-  {identifier: "kannada", name: "Kannada"},
-  {identifier: "spanish", name: "Spanish"},
-]
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "telugu", name: "Telugu" },
+  { identifier: "tamil", name: "Tamil" },
+  { identifier: "malayalam", name: "Malayalam" },
+  { identifier: "kannada", name: "Kannada" },
+  { identifier: "spanish", name: "Spanish" },
+];

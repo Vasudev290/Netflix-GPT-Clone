@@ -1,4 +1,3 @@
-import React from "react";
 import MovieList from "./SuggestMovies/MovieList";
 import { useSelector } from "react-redux";
 

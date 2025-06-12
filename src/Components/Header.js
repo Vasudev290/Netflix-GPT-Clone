@@ -86,7 +86,7 @@ const Header = () => {
             onClick={handleGptSearch}
             className="py-4 px-2 mx-2 my-2 bg-purple-400 font-semibold text-white rounded-md hover:bg-purple-500 transition-colors duration-200"
           >
-            {showGptSearchView ? "Home!" : " GPT Search"}
+            {showGptSearchView ? "Home" : " GPT Search"}
           </button>
           {/* User Avatar */}
           <img

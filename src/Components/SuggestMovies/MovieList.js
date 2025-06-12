@@ -36,7 +36,7 @@ const MovieList = (props) => {
   }
 
   return (
-    <div className="px-6 bg-black mb-8 relative">
+    <div className="px-6 bg-black mb-8 relative w-full max-h-screen">
       <h1 className="text-3xl md:text-4xl font-bold py-4 text-white">
         {title}
       </h1>
@@ -44,8 +44,8 @@ const MovieList = (props) => {
       <div className="flex items-center">
         {/* Left Scroll Button */}
         <button
-          onClick={scrollLeft} // FIX: Removed the problematic comment directly after the expression
-          className="absolute left-0 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-r-lg h-full flex items-center justify-center transition-all duration-200 focus:outline-none"
+          onClick={scrollLeft} 
+          className="absolute left-0 z-10 p-2 text-white rounded-r-lg h-full flex items-center justify-center transition-all duration-200 focus:outline-none"
           aria-label={`Scroll left in ${title}`}
         >
           <svg
@@ -82,7 +82,7 @@ const MovieList = (props) => {
         {/* Right Scroll Button */}
         <button
           onClick={scrollRight}
-          className="absolute right-0 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-l-lg h-full flex items-center justify-center transition-all duration-200 focus:outline-none"
+          className="absolute right-0 z-10 p-2 text-white rounded-l-lg h-full flex items-center justify-center transition-all duration-200 focus:outline-none"
           aria-label={`Scroll right in ${title}`}
         >
           <svg

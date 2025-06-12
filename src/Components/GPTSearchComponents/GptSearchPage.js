@@ -4,7 +4,7 @@ import GptSearchBar from "./GptSearchBar";
 
 const GptSearchPage = () => {
   return (
-    <div>
+    <div className="w-full max-h-screen">
       <div className="absolute inset-0 z-[-1]">
         <img
           src={BACKGROUND_IMAGE_URL}
@@ -19,4 +19,4 @@ const GptSearchPage = () => {
   );
 };
 
-export default GptSearchPage;
+export default GptSearchPage; 

@@ -27,7 +27,7 @@ const Login = () => {
   // Function to toggle between Sign In and Sign Up forms
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
-    setErrorMessage(null); // Clear error message when toggling form
+    setErrorMessage(null); 
   };
 
   // Handler for the form submission button (Sign In/Sign Up)
@@ -114,9 +114,9 @@ const Login = () => {
       {/* Login/Sign Up Form */}
       <form
         onSubmit={(e) => e.preventDefault()} 
-        className="w-full md:w-8/12 lg:w-5/12 xl:w-4/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full md:w-8/12 lg:w-5/12 xl:w-4/12 absolute p-8 md:p-12 bg-black my-20 md:my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-2xl md:text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 
@@ -125,7 +125,7 @@ const Login = () => {
             ref={nameRef}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-3 w-full bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 border border-gray-700" // Added rounded, focus, and border
+            className="p-3 md:p-4 my-2 md:my-3 w-full bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 border border-gray-700"
           />
         )}
 
@@ -133,26 +133,26 @@ const Login = () => {
           ref={emailRef}
           type="email"
           placeholder="Email Address"
-          className="p-4 my-3 w-full bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 border border-gray-700" // Added rounded, focus, and border
+          className="p-3 md:p-4 my-2 md:my-3 w-full bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 border border-gray-700" 
         />
 
         <input
           ref={passwordRef}
           type="password"
           placeholder="Password"
-          className="p-4 my-3 w-full bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 border border-gray-700" // Added rounded, focus, and border
+          className="p-3 md:p-4 my-2 md:my-3 w-full bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 border border-gray-700" 
         />
 
-        <p className="text-red-500 font-bold p-2">{errorMessage}</p>
+        <p className="text-red-500 font-bold p-2 text-sm md:text-base">{errorMessage}</p>
 
         <button
-          className="p-4 my-6 bg-red-700 w-full rounded-md text-xl font-semibold hover:bg-red-800 transition-colors duration-200" // Styled button with hover
+          className="p-3 md:p-4 my-4 md:my-6 bg-red-700 w-full rounded-md text-lg md:text-xl font-semibold hover:bg-red-800 transition-colors duration-200" 
           onClick={handleButtonClick}
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
 
-        <p className="py-4 cursor-pointer text-gray-400 hover:underline" onClick={toggleSignInForm}>
+        <p className="py-2 md:py-4 cursor-pointer text-gray-400 hover:underline text-sm md:text-base" onClick={toggleSignInForm}>
           {isSignInForm
             ? "New to Netflix? Sign Up Now"
             : "Already Registered? Sign In Now"}

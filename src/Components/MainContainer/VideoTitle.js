@@ -1,4 +1,3 @@
-
 const VideoTitle = (props) => {
   const { title, overview ,onToggleMute, isMuted  } = props;
 
