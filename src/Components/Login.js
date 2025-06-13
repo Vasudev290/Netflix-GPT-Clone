@@ -88,7 +88,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user); 
+          //console.log(user); 
         })
         .catch((error) => {
           // Handle Sign In errors (e.g., wrong password, user not found)
