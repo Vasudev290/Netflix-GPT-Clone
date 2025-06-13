@@ -1,16 +1,16 @@
 const VideoTitle = (props) => {
-  const { title, overview ,onToggleMute, isMuted  } = props;
+  const { title, overview, onToggleMute, isMuted } = props;
 
   return (
-    <div className="absolute pt-[15%] px-24 text-white bg-gradient-to-r from-black w-full aspect-video">
-      <h1 className="text-4xl md:text-6xl font-bold max-w-2xl leading-tight">
+    <div className="absolute pt-[15%] px-4 md:px-24 text-white bg-gradient-to-r from-black w-full aspect-video">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold max-w-2xl leading-tight">
         {title}
       </h1>
-      <p className="hidden md:block py-6 text-lg w-1/2 lg:w-1/3 leading-relaxed">
+      <p className="hidden md:block py-6 text-lg w-full md:w-1/2 lg:w-1/3 leading-relaxed">
         {overview}
       </p>
-      <div className="flex space-x-3 mt-4 md:mt-0">
-        <button className="flex items-center bg-white text-black py-2 px-6 md:py-3 md:px-8 rounded-md hover:bg-opacity-80 transition-colors duration-200 text-lg font-semibold">
+      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-3 mt-4 md:mt-0">
+        <button className="flex items-center bg-white text-black py-2 px-4 md:py-3 md:px-6 rounded-md hover:bg-opacity-80 transition-colors duration-200 text-lg font-semibold">
           <svg
             className="w-5 h-5 mr-2"
             fill="currentColor"
@@ -25,7 +25,7 @@ const VideoTitle = (props) => {
           </svg>
           Play
         </button>
-        <button className="hidden md:flex items-center bg-white text-black bg-opacity-70 py-2 px-6 md:py-3 md:px-8 rounded-md hover:bg-opacity-60 transition-colors duration-200 text-lg font-semibold">
+        <button className="hidden md:flex items-center bg-white text-black bg-opacity-70 py-2 px-4 md:py-3 md:px-6 rounded-md hover:bg-opacity-60 transition-colors duration-200 text-lg font-semibold">
           <svg
             className="w-5 h-5 mr-2"
             fill="currentColor"
@@ -41,11 +41,10 @@ const VideoTitle = (props) => {
           More Info
         </button>
         <button
-          onClick={onToggleMute} 
-          className="flex items-center bg-gray-500 text-white bg-opacity-70 py-2 px-6 md:py-3 md:px-8 rounded-md hover:bg-opacity-60 transition-colors duration-200 text-lg font-semibold"
+          onClick={onToggleMute}
+          className="flex items-center bg-gray-500 text-white bg-opacity-70 py-2 px-4 md:py-3 md:px-6 rounded-md hover:bg-opacity-60 transition-colors duration-200 text-lg font-semibold"
         >
           {isMuted ? (
-            // Muted icon (volume off)
             <svg
               className="w-5 h-5 mr-2"
               fill="currentColor"

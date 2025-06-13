@@ -11,7 +11,7 @@ const MovieCard = (props) => {
     : fallbackImageUrl;
 
   return (
-    <div className="relative w-36 md:w-48 flex-shrink-0 rounded-lg shadow-xl overflow-hidden group">
+    <div className="relative w-28 md:w-36 lg:w-48 flex-shrink-0 rounded-lg shadow-xl overflow-hidden group">
       <img
         className="w-full h-auto object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-110"
         alt="Movie Poster"

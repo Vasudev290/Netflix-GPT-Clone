@@ -1,10 +1,19 @@
 import MovieCard from "./MovieCard";
 import { useRef } from "react";
+
 const MovieList = (props) => {
   const { title, movies } = props;
-  //console.log(movies);
-
   const scrollContainerRef = useRef(null);
+
+  if (!movies || !Array.isArray(movies) || movies.length === 0) {
+    return (
+      <div className="px-6 py-6 bg-black">
+        <h1 className="text-3xl font-bold py-4 text-white">{title}</h1>
+        <p className="text-gray-400">No movies available at the moment.</p>
+      </div>
+    );
+  }
+
   // Function to scroll left
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -25,18 +34,8 @@ const MovieList = (props) => {
     }
   };
 
-  if (!movies || !Array.isArray(movies) || movies.length === 0) {
-    //console.log(`No valid movies array to display for title: ${title}`);
-    return (
-      <div className="px-6 py-6 bg-black">
-        <h1 className="text-3xl font-bold py-4 text-white">{title}</h1>
-        <p className="text-gray-400">No movies available at the moment.</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="px-6 bg-black mb-8 relative w-full max-h-screen">
+    <div className="px-4 md:px-6 bg-black mb-8 relative w-full">
       <h1 className="text-3xl md:text-4xl font-bold py-4 text-white">
         {title}
       </h1>
@@ -44,7 +43,7 @@ const MovieList = (props) => {
       <div className="flex items-center">
         {/* Left Scroll Button */}
         <button
-          onClick={scrollLeft} 
+          onClick={scrollLeft}
           className="absolute left-0 z-10 p-2 text-white rounded-r-lg h-full flex items-center justify-center transition-all duration-200 focus:outline-none"
           aria-label={`Scroll left in ${title}`}
         >

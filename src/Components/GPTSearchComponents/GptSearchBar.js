@@ -10,17 +10,11 @@ import {
 } from "../../Utils/Constent/constent";
 
 const GptSearchBar = () => {
-  //useSelector
   const languageKey = useSelector((state) => state.config.language);
-
-  //useRef
   const searchTextRef = useRef(null);
-
-  //Local State Variable
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
 
-  //SearchHandler
   const handleGptSearch = async () => {
     const query = searchTextRef.current.value;
     setHasSearched(true);
@@ -39,27 +33,27 @@ const GptSearchBar = () => {
         return;
       }
       const data = await response.json();
-      console.log(data.results);
       setSearchedMovies(data.results);
     } catch (error) {
       console.error("Network or Fetch Error:", error);
       setSearchedMovies([]);
     }
   };
+
   return (
     <div
-      className="relative pt-[8%] flex flex-col items-center min-h-screen bg-cover bg-center"
+      className="relative pt-[16%] md:pt-[13%] flex flex-col items-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${BACKGROUND_IMAGE_URL})` }}
     >
-      <div className="absolute inset-0 bg-black opacity-70"></div>
+      <div className="absolute inset-0 bg-black opacity-30"></div>
       <form
-        className="w-11/12 md:w-1/2 bg-black bg-opacity-80 p-4 rounded-lg shadow-lg grid grid-cols-12 gap-2 z-10"
+        className="w-11/12 md:w-1/2 lg:w-1/3 bg-black bg-opacity-90 p-4 rounded-lg shadow-lg grid grid-cols-12 gap-2 z-10"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           type="text"
           ref={searchTextRef}
-          className="p-3 md:p-4 col-span-9 bg-black bg-opacity-70 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 text-sm md:text-base"
+          className="p-3 md:p-4 col-span-9 bg-black bg-opacity-90 text-white placeholder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 text-sm md:text-base"
           placeholder={languageCoonstent[languageKey].gptSearchPlaceHolder}
         />
         <button
@@ -75,7 +69,7 @@ const GptSearchBar = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
             Search Results
           </h2>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {searchedMovies.map((movie) =>
               movie && movie.id ? (
                 <GptMovieSuggestions
@@ -92,7 +86,7 @@ const GptSearchBar = () => {
         searchedMovies.length === 0 &&
         searchTextRef.current &&
         searchTextRef.current.value !== "" && (
-          <p className="text-white mt-8 text-base md:text-lg z-10 text-center">
+          <p className="text-white mt-8 text-base md:text-lg z-10 text-center font-bold">
             No results found for "{searchTextRef.current.value}".
           </p>
         )}
@@ -100,4 +94,4 @@ const GptSearchBar = () => {
   );
 };
 
-export default GptSearchBar; 
+export default GptSearchBar;

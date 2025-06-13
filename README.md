@@ -39,6 +39,12 @@
 -GPT Search Page
 -GPT Search Bar
 -Multi-Language feature in our project (Bonus)
+-fetch the movie list and gievn movie list access to input button -whatever movie if you search it'll come to below
+-fetch gptMoviesSuggestions from TMDB
+-Reused movies list component to make movie suggestion sontainer
+-Memoizations
+-We made our site responsiveness to all the device
+-add we added icon for our project icon
 
 # Features
 
